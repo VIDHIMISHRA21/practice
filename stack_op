@@ -1,0 +1,86 @@
+
+#include <stdio.h>
+#define SIZE 5
+
+int stack[SIZE];
+int top=-1;
+
+//push
+void push(int x){
+    if(top==SIZE -1){
+        printf("stack overflow,cannot push%d \n", x);
+    }else{
+        stack[++top]=x;
+    }
+}
+void pop(){
+    if(top==-1){
+        printf("stack underflow");
+        
+    }
+        else{
+            printf("pop elemnt %d \n",stack[top--]);
+        }
+    }
+void peek(){
+   if(top==-1){
+       printf("stack is empty");
+   } 
+   else{
+       printf("top=%d \n", stack[top]);
+   }
+}
+void display(){
+    if(top==-1)
+    {
+        printf("stack is empty");
+}else
+printf("elements of array;");
+for(int i=0;i<=top;i++){
+    printf("%d , stack[i]");
+}
+printf("\n");
+    }
+
+int main(){
+    int choice,value;
+    
+    do{
+        printf("\n --stack menu--\n");
+        printf("1.PUSH \n");
+        printf("2.POP \n");
+        printf("3.PEEK(top)\n");
+        printf("4.DISPLAY \n");
+        printf("ENTER YOUR CHOICE;");
+        scanf("%d", & choice);
+        
+        switch(choice){
+            case 1:
+            printf("enter value to push:");
+            scanf("%d", & value);
+            push(value);
+            break;
+            
+            case 2:
+            pop();
+            break;
+            
+            case 3:
+            peek();
+            break;
+            
+            case 4:
+            display();
+            break;
+            
+            case 5:
+            printf("exiting");
+            break;
+            
+            default:
+            printf("INVALID");
+            
+        }
+    } while (choice !=5);
+    return 0;
+}
